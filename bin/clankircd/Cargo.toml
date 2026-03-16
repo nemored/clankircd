@@ -1,0 +1,15 @@
+[package]
+name = "clankircd"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+clankircd-config = { path = "../../crates/config" }
+clankircd-server-core = { path = "../../crates/server-core" }
+clankircd-transport = { path = "../../crates/transport" }

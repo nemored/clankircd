@@ -1,0 +1,10 @@
+[package]
+name = "clankircd-server-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+clankircd-protocol = { path = "../protocol" }
+tokio.workspace = true
+tracing.workspace = true
