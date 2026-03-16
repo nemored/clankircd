@@ -8,6 +8,7 @@ This document outlines a practical delivery plan for building **clankircd**, a n
 - Build a production-ready IRC server in Rust.
 - Prioritize IRCv3 protocol compliance and interoperability.
 - Support safe hot-reloading for selected runtime configuration.
+- Define a hot code reloading design requirement that allows operator-initiated zero-downtime binary swaps for compatible releases.
 - Keep the architecture modular for future extensions (services, clustering, plugins).
 
 ### Non-goals (initial release)
@@ -68,6 +69,16 @@ This document outlines a practical delivery plan for building **clankircd**, a n
 
 **Exit criteria**
 - Valid config reload applies at runtime without dropping active sessions.
+
+## Milestone 3.5: Hot code reload design requirement (1 week)
+- Publish an architecture decision record (ADR) for hot code reload behavior.
+- Define compatibility contract for reloadable binaries (protocol/state schema, session handoff invariants).
+- Specify process model for handoff (`exec`-style re-exec or sidecar handover), including rollback path.
+- Define observability and operator UX requirements (pre-flight checks, progress logging, abort semantics).
+- Add non-goals for the first design iteration (e.g., no live plugin ABI loading).
+
+**Exit criteria**
+- Approved design spec exists with clear implementation boundaries, risk analysis, and test strategy for future milestones.
 
 ## Milestone 4: Security and reliability hardening (2 weeks)
 - Rate limiting and flood controls.
